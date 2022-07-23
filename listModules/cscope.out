@@ -1,0 +1,676 @@
+cscope 15 $HOME/dnya_training/l_codes/listModules               0000003650
+	@list_module.c
+
+1 
+	~<lšux/k”Ãl.h
+>
+
+2 
+	~<lšux/moduË.h
+>
+
+3 
+	~<lšux/š™.h
+>
+
+4 
+	~<lšux/li¡.h
+>
+
+5 
+MODULE_LICENSE
+("GPL");
+
+6 
+MODULE_AUTHOR
+("DNYANESHWAR BHADANE");
+
+8 
+MODULE_DESCRIPTION
+("This is†ist module");
+
+10 
+MODULE_VERSION
+("0.01");
+
+12 
+__š™
+ 
+	$’ŒyFn
+(){
+
+15 
+	}
+}
+
+16 
+__ex™
+ 
+	$ex™Fn
+(){
+
+17 
+	`´štk
+(
+KERN_INFO
+ "(********************************Module Exit\n");
+
+18 
+	}
+}
+
+21 
+moduË_š™
+(
+’ŒyFn
+);
+
+22 
+moduË_ex™
+(
+ex™Fn
+);
+
+	@/usr/include/linux/kernel.h
+
+2 #iâdeà
+_LINUX_KERNEL_H
+
+
+3 
+	#_LINUX_KERNEL_H
+
+
+	)
+
+5 
+	~<lšux/sysšfo.h
+>
+
+6 
+	~<lšux/cÚ¡.h
+>
+
+	@/usr/include/linux/module.h
+
+2 #iâdeà
+_LINUX_MODULE_H
+
+
+3 
+	#_LINUX_MODULE_H
+
+
+	)
+
+6 
+	#MODULE_INIT_IGNORE_MODVERSIONS
+ 1
+
+	)
+
+7 
+	#MODULE_INIT_IGNORE_VERMAGIC
+ 2
+
+	)
+
+8 
+	#MODULE_INIT_COMPRESSED_FILE
+ 4
+
+	)
+
+	@/usr/include/linux/const.h
+
+4 #iâdeà
+_LINUX_CONST_H
+
+
+5 
+	#_LINUX_CONST_H
+
+
+	)
+
+16 #ifdeà
+__ASSEMBLY__
+
+
+17 
+	#_AC
+(
+X
+,
+Y
+è
+	)
+X
+
+18 
+	#_AT
+(
+T
+,
+X
+è
+	)
+X
+
+20 
+	#__AC
+(
+X
+,
+Y
+è(X##Y)
+
+	)
+
+21 
+	#_AC
+(
+X
+,
+Y
+è
+	`__AC
+(X,Y)
+
+	)
+
+22 
+	#_AT
+(
+T
+,
+X
+è((T)(X))
+
+	)
+
+25 
+	#_UL
+(
+x
+è(
+	`_AC
+(x, 
+UL
+))
+
+	)
+
+26 
+	#_ULL
+(
+x
+è(
+	`_AC
+(x, 
+ULL
+))
+
+	)
+
+28 
+	#_BITUL
+(
+x
+è(
+	`_UL
+(1è<< (x))
+
+	)
+
+29 
+	#_BITULL
+(
+x
+è(
+	`_ULL
+(1è<< (x))
+
+	)
+
+31 
+	#__ALIGN_KERNEL
+(
+x
+, 
+a
+è
+	`__ALIGN_KERNEL_MASK
+(x, (
+	`ty³of
+(x))×è- 1)
+
+	)
+
+32 
+	#__ALIGN_KERNEL_MASK
+(
+x
+, 
+mask
+è(((xè+ (mask)è& ~(mask))
+
+	)
+
+34 
+	#__KERNEL_DIV_ROUND_UP
+(
+n
+, 
+d
+è((Òè+ (dè- 1è/ (d))
+
+	)
+
+	@/usr/include/linux/sysinfo.h
+
+2 #iâdeà
+_LINUX_SYSINFO_H
+
+
+3 
+	#_LINUX_SYSINFO_H
+
+
+	)
+
+5 
+	~<lšux/ty³s.h
+>
+
+7 
+	#SI_LOAD_SHIFT
+ 16
+
+	)
+
+8 
+	ssysšfo
+ {
+
+9 
+__k”Ãl_lÚg_t
+ 
+	mu±ime
+;
+
+10 
+__k”Ãl_ulÚg_t
+ 
+	mlßds
+[3];
+
+11 
+__k”Ãl_ulÚg_t
+ 
+	mtÙ®¿m
+;
+
+12 
+__k”Ãl_ulÚg_t
+ 
+	mä“¿m
+;
+
+13 
+__k”Ãl_ulÚg_t
+ 
+	msh¬ed¿m
+;
+
+14 
+__k”Ãl_ulÚg_t
+ 
+	mbufã¼am
+;
+
+15 
+__k”Ãl_ulÚg_t
+ 
+	mtÙ®sw­
+;
+
+16 
+__k”Ãl_ulÚg_t
+ 
+	mä“sw­
+;
+
+17 
+__u16
+ 
+	m´ocs
+;
+
+18 
+__u16
+ 
+	m·d
+;
+
+19 
+__k”Ãl_ulÚg_t
+ 
+	mtÙ®high
+;
+
+20 
+__k”Ãl_ulÚg_t
+ 
+	mä“high
+;
+
+21 
+__u32
+ 
+	mmem_un™
+;
+
+22 
+	m_f
+[20-2*(
+__k”Ãl_ulÚg_t
+)-(
+__u32
+)];
+
+	@/usr/include/linux/types.h
+
+2 #iâdeà
+_LINUX_TYPES_H
+
+
+3 
+	#_LINUX_TYPES_H
+
+
+	)
+
+5 
+	~<asm/ty³s.h
+>
+
+7 #iâdeà
+__ASSEMBLY__
+
+
+9 
+	~<lšux/posix_ty³s.h
+>
+
+17 #ifdeà
+__CHECKER__
+
+
+18 
+	#__b™wi£__
+ 
+	`__©Œibu‹__
+((
+b™wi£
+))
+
+	)
+
+20 
+	#__b™wi£__
+
+
+	)
+
+22 
+	#__b™wi£
+ 
+__b™wi£__
+
+
+	)
+
+24 
+__u16
+ 
+	t__b™wi£
+ 
+	t__Ë16
+;
+
+25 
+__u16
+ 
+	t__b™wi£
+ 
+	t__be16
+;
+
+26 
+__u32
+ 
+	t__b™wi£
+ 
+	t__Ë32
+;
+
+27 
+__u32
+ 
+	t__b™wi£
+ 
+	t__be32
+;
+
+28 
+__u64
+ 
+	t__b™wi£
+ 
+	t__Ë64
+;
+
+29 
+__u64
+ 
+	t__b™wi£
+ 
+	t__be64
+;
+
+31 
+__u16
+ 
+	t__b™wi£
+ 
+	t__sum16
+;
+
+32 
+__u32
+ 
+	t__b™wi£
+ 
+	t__wsum
+;
+
+43 
+	#__®igÃd_u64
+ 
+__u64
+ 
+	`__©Œibu‹__
+((
+	`®igÃd
+(8)))
+
+	)
+
+44 
+	#__®igÃd_be64
+ 
+__be64
+ 
+	`__©Œibu‹__
+((
+	`®igÃd
+(8)))
+
+	)
+
+45 
+	#__®igÃd_Ë64
+ 
+__Ë64
+ 
+	`__©Œibu‹__
+((
+	`®igÃd
+(8)))
+
+	)
+
+47 
+	t__b™wi£
+ 
+	t__pÞl_t
+;
+
+	@/usr/include/linux/posix_types.h
+
+2 #iâdeà
+_LINUX_POSIX_TYPES_H
+
+
+3 
+	#_LINUX_POSIX_TYPES_H
+
+
+	)
+
+5 
+	~<lšux/¡ddef.h
+>
+
+22 #undeà
+__FD_SETSIZE
+
+
+23 
+	#__FD_SETSIZE
+ 1024
+
+	)
+
+26 
+	mfds_b™s
+[
+__FD_SETSIZE
+ / (8 * ())];
+
+27 } 
+	t__k”Ãl_fd_£t
+;
+
+30 (*
+	t__k”Ãl_sighªdËr_t
+)();
+
+33 
+	t__k”Ãl_key_t
+;
+
+34 
+	t__k”Ãl_mqd_t
+;
+
+36 
+	~<asm/posix_ty³s.h
+>
+
+	@/usr/include/linux/stddef.h
+
+4 #iâdeà
+__®ways_šlše
+
+
+5 
+	#__®ways_šlše
+ 
+__šlše__
+
+
+	)
+
+23 
+	#__¡ruù_group
+(
+TAG
+, 
+NAME
+, 
+ATTRS
+, 
+MEMBERS
+...) \
+
+25 ¡ruù { 
+MEMBERS
+ } 
+ATTRS
+; \
+
+26 
+	sTAG
+ { 
+MEMBERS
+ } 
+ATTRS
+ 
+NAME
+; \
+
+27 }
+
+	)
+
+39 
+	#__DECLARE_FLEX_ARRAY
+(
+TYPE
+, 
+NAME
+) \
+
+41 ¡ruù { } 
+__em±y_
+ ## 
+NAME
+; \
+
+42 
+TYPE
+ 
+NAME
+[]; \
+
+43 }
+
+	)
+
+	@
+1
+.
+1
+/usr/include
+8
+214
+list_module.c
+/usr/include/linux/kernel.h
+/usr/include/linux/module.h
+/usr/include/linux/const.h
+/usr/include/linux/sysinfo.h
+/usr/include/linux/types.h
+/usr/include/linux/posix_types.h
+/usr/include/linux/stddef.h

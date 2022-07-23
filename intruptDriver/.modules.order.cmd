@@ -1,0 +1,1 @@
+cmd_/home/kandpal/dnya_training/l_codes/linux-driver-training/intruptDriver/modules.order := {   echo /home/kandpal/dnya_training/l_codes/linux-driver-training/intruptDriver/itr.ko; :; } | awk '!x[$$0]++' - > /home/kandpal/dnya_training/l_codes/linux-driver-training/intruptDriver/modules.order

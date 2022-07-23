@@ -1,0 +1,19 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+car	list_module.c	/^struct car {$/;"	s	file:
+color	list_module.c	/^	char *color;$/;"	m	struct:car	file:
+doors	list_module.c	/^	int doors;$/;"	m	struct:car	file:
+entryFn	list_module.c	/^module_init(entryFn);$/;"	v
+entryFn	list_module.c	/^static int __init  entryFn(void){$/;"	f	file:
+exitFn	list_module.c	/^module_exit(exitFn);$/;"	v
+exitFn	list_module.c	/^static void __exit exitFn(void){$/;"	f	file:
+list	list_module.c	/^	struct list_head list;$/;"	m	struct:car	typeref:struct:car::list_head	file:
+myCarList	list_module.c	/^LIST_HEAD(myCarList);$/;"	v
+myCarList	list_module.c	/^struct list_head myCarList;$/;"	v	typeref:struct:list_head
+name	list_module.c	/^	char *name;$/;"	m	struct:car	file:
+setData	list_module.c	/^static void setData(struct car *self , int door , char *color , char * name ){$/;"	f	file:
+traverseListAndPrintData	list_module.c	/^static void traverseListAndPrintData(void){$/;"	f	file:

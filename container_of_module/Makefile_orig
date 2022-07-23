@@ -1,0 +1,11 @@
+
+obj-m += container_of.o
+all: 
+	make -C /lib/modules/$(shell uname -r)/build M=$(pwd) modules
+clean: 
+	make -C /lib/modules/$(shell uname -r)/build M=$(PWD) clean
+test:
+	sudo dmesg -C
+	sudo insmod container_of.ko
+	sudo rmmod container_of.ko
+	dmesg

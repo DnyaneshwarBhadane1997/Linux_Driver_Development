@@ -1,0 +1,1 @@
+cmd_/home/kandpal/dnya_training/l_codes/linux-driver-training/shared_q_module/q_shared.mod := printf '%s\n'   q_shared.o | awk '!x[$$0]++ { print("/home/kandpal/dnya_training/l_codes/linux-driver-training/shared_q_module/"$$0) }' > /home/kandpal/dnya_training/l_codes/linux-driver-training/shared_q_module/q_shared.mod

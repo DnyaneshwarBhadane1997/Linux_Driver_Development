@@ -1,0 +1,1 @@
+cmd_/home/kandpal/dnya_training/l_codes/linux-driver-training/key_logs/suraj/charDriver.mod := { echo  /home/kandpal/dnya_training/l_codes/linux-driver-training/key_logs/suraj/charDriver.o; echo; } > /home/kandpal/dnya_training/l_codes/linux-driver-training/key_logs/suraj/charDriver.mod

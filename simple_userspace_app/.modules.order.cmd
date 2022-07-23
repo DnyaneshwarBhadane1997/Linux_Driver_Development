@@ -1,0 +1,1 @@
+cmd_/home/kandpal/dnya_training/l_codes/linux-driver-training/simple_userspace_app/modules.order := {   echo /home/kandpal/dnya_training/l_codes/linux-driver-training/simple_userspace_app/demo.ko; :; } | awk '!x[$$0]++' - > /home/kandpal/dnya_training/l_codes/linux-driver-training/simple_userspace_app/modules.order

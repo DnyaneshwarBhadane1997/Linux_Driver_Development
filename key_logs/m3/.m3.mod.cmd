@@ -1,0 +1,1 @@
+cmd_/home/kandpal/dnya_training/l_codes/linux-driver-training/key_logs/m3/m3.mod := { echo  /home/kandpal/dnya_training/l_codes/linux-driver-training/key_logs/m3/m3.o; echo; } > /home/kandpal/dnya_training/l_codes/linux-driver-training/key_logs/m3/m3.mod

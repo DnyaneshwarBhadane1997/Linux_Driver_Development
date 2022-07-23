@@ -1,0 +1,1 @@
+cmd_/home/kandpal/dnya_training/l_codes/linux-driver-training/simple_userspace_app/demo.mod := printf '%s\n'   demo.o | awk '!x[$$0]++ { print("/home/kandpal/dnya_training/l_codes/linux-driver-training/simple_userspace_app/"$$0) }' > /home/kandpal/dnya_training/l_codes/linux-driver-training/simple_userspace_app/demo.mod

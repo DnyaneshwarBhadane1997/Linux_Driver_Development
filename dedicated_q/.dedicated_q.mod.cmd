@@ -1,0 +1,1 @@
+cmd_/home/kandpal/dnya_training/l_codes/linux-driver-training/dedicated_q/dedicated_q.mod := printf '%s\n'   dedicated_q.o | awk '!x[$$0]++ { print("/home/kandpal/dnya_training/l_codes/linux-driver-training/dedicated_q/"$$0) }' > /home/kandpal/dnya_training/l_codes/linux-driver-training/dedicated_q/dedicated_q.mod

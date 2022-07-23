@@ -1,0 +1,1 @@
+cmd_/home/kandpal/dnya_training/l_codes/linux-driver-training/dedicated_q/Module.symvers := sed 's/ko$$/o/' /home/kandpal/dnya_training/l_codes/linux-driver-training/dedicated_q/modules.order | scripts/mod/modpost    -o /home/kandpal/dnya_training/l_codes/linux-driver-training/dedicated_q/Module.symvers -e -i Module.symvers   -T -

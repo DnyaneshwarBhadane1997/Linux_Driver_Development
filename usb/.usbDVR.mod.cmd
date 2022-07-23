@@ -1,0 +1,1 @@
+cmd_/home/kandpal/dnya_training/l_codes/linux-driver-training/usb/usbDVR.mod := { echo  /home/kandpal/dnya_training/l_codes/linux-driver-training/usb/usbDVR.o; echo; } > /home/kandpal/dnya_training/l_codes/linux-driver-training/usb/usbDVR.mod
