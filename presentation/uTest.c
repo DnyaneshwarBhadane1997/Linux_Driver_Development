@@ -16,6 +16,7 @@
 
 #define REG_CURRENT_TASK _IOW(MAGIC,'c',int32_t*)
 #define CREATE_TASKLET _IOW(MAGIC,'d',int32_t*)
+#define CREATE_TIMER _IOW(MAGIC,'e',int32_t*)
 
 #define STAR '*'
 #define HASH '#'
@@ -92,9 +93,12 @@ int main(void){
 			        printf("Value is %d\n", value);
 				break;
 			case 4:
-                                ioctl(fd,CREATE_TASKLET , (int32_t*)&value);
+                ioctl(fd,CREATE_TASKLET , (int32_t*)&value);
 				break;
 
+			case 5:  				
+				ioctl(fd,CREATE_TIMER , (int32_t*)&value);
+				break;
 			case 8:
 				pre_exit_cleanup();
 				return 0;	
@@ -116,13 +120,13 @@ void printMenu(void){
 	printChar(17, STAR);
 	printf("Welcome To UserSpace App");
 	printChar(20, STAR);newLine();
-
-
-        printf("\nPlease select choise from Menu items\n");
-        printf("1. Write Values\n");
-        printf("2. Read  Value\n");
-        printf("3. List usb devices\n");
+	printf("\nPlease select choise from Menu items\n");
+	printf("1. Write Values\n");
+	printf("2. Read  Value\n");
+	printf("3. List usb devices\n");
 	printf("4. Create tasklate\n");
+	printf("5. Create timer\n");
+	
 	printf("8. Exit\n");
 	printChar(60, STAR);
 	newLine();

@@ -3,9 +3,9 @@
 #include <linux/interrupt.h>
 #include <asm/io.h>
 #include <linux/mutex.h>
-
+#include <linux/usb.h>
 #include <asm/hw_irq.h>
-
+#include <linux/timer.h>
 #include "linux/sched/signal.h"
 #define IRQ_NO 11
 #define SIGETX 44
@@ -14,6 +14,62 @@ MODULE_LICENSE("GPL");
 MODULE_AUTHOR("DNYANESHWAR BHADANE");
 MODULE_DESCRIPTION("This is presentation driver");
 MODULE_VERSION("0.01");
+static struct usb_device *device;
+ 
+static int pen_probe(struct usb_interface *interface, const struct usb_device_id *id)
+{
+    struct usb_host_interface *iface_desc;
+    struct usb_endpoint_descriptor *endpoint;
+    int i;
+    printk(KERN_INFO  "THis is my driver print this data on probe");
+    
+    iface_desc = interface->cur_altsetting;
+    printk(KERN_INFO "Pen i/f %d now probed: (%04X:%04X)\n",
+            iface_desc->desc.bInterfaceNumber, id->idVendor, id->idProduct);
+    printk(KERN_INFO "ID->bNumEndpoints: %02X\n",
+            iface_desc->desc.bNumEndpoints);
+    printk(KERN_INFO "ID->bInterfaceClass: %02X\n",
+            iface_desc->desc.bInterfaceClass);
+ 
+    for (i = 0; i < iface_desc->desc.bNumEndpoints; i++)
+    {
+        endpoint = &iface_desc->endpoint[i].desc;
+ 
+        printk(KERN_INFO "ED[%d]->bEndpointAddress: 0x%02X\n",
+                i, endpoint->bEndpointAddress);
+        printk(KERN_INFO "ED[%d]->bmAttributes: 0x%02X\n",
+                i, endpoint->bmAttributes);
+        printk(KERN_INFO "ED[%d]->wMaxPacketSize: 0x%04X (%d)\n",
+                i, endpoint->wMaxPacketSize, endpoint->wMaxPacketSize);
+    }
+ 
+    device = interface_to_usbdev(interface);
+    return 0;
+}
+ 
+static void pen_disconnect(struct usb_interface *interface)
+{
+    printk(KERN_INFO "Pen i/f %d now disconnected\n",
+            interface->cur_altsetting->desc.bInterfaceNumber);
+}
+ 
+ 
+static struct usb_device_id pen_table[] =
+{
+     { USB_DEVICE(0x0781, 0x556b)},
+     {USB_DEVICE(0x2e82 ,0x22b8)},
+    { USB_DEVICE(0x22b8, 0x2e82)},
+    {} /* Terminating entry */
+};
+MODULE_DEVICE_TABLE (usb, pen_table);
+ 
+static struct usb_driver pen_driver =
+{
+    .name = "pen_driver",
+    .probe = pen_probe,
+    .disconnect = pen_disconnect,
+    .id_table = pen_table,
+};
 
 struct mutex etx_mutex;
 static int __init entryFn(void);
@@ -27,12 +83,13 @@ static void tasklet_fn(unsigned long);
 
 //:wq
 //static bool loggerFlag =  true;
+
 int32_t value = 0;
 static struct task_struct *task = NULL;
 static int signum = 0;
 char tasklet_data[] = "We use a string; but it could be pointer to a structure";
 
-DECLARE_TASKLET(tasklet,tasklet_fn,(long unsigned int)tasklet_data);
+DECLARE_TASKLET_OLD(tasklet,tasklet_fn);
 
 dev_t dev = 0;
 static struct class *dev_class;
@@ -44,6 +101,7 @@ void tasklet_fn(unsigned long);
 
 void tasklet_fn(unsigned long data){
 
+        printk(KERN_INFO "NO DATA %s\n" , tasklet_data);
         printk(KERN_INFO "NO DATA %s\n" , (char *)data);
 } 
 
@@ -112,6 +170,13 @@ static ssize_t etx_write(struct file *filp, const char __user *buf, size_t len, 
 /*
 ** This function will be called when we write IOCTL on the Device file
 */
+
+static struct timer_list my_timer;
+
+void my_timer_callback(struct timer_list *timer){
+
+	printk("%s called (%ld).\n", __FUNCTION__, jiffies);
+}
 static long etx_ioctl(struct file *file, unsigned int cmd, unsigned long arg)
 {
          switch(cmd) {
@@ -136,6 +201,9 @@ static long etx_ioctl(struct file *file, unsigned int cmd, unsigned long arg)
 		case CREATE_TASKLET:
 		        tasklet_schedule(&tasklet);
 			break;
+                case CREATE_TIMER:
+                        mod_timer( &my_timer, jiffies + msecs_to_jiffies(5000));
+                        break;
 
                 default:
                         pr_info("Default\n");
@@ -145,8 +213,6 @@ static long etx_ioctl(struct file *file, unsigned int cmd, unsigned long arg)
 }
 
 static int __init  entryFn(void){
-
-
 	printk(KERN_INFO "%s : Loading Module..............\n", __func__);
 
 	if((alloc_chrdev_region(&dev, 0, 1, "etx_Dev")) <0){
@@ -183,6 +249,10 @@ static int __init  entryFn(void){
         	printk(KERN_INFO "my_device: cannot register IRQ ");
 	        goto irq;
     	} 
+        
+        usb_register(&pen_driver);
+        
+        timer_setup(&my_timer,  my_timer_callback , 0);
         pr_info("Device Driver Insert...Done!!!\n");
         return 0;
  
@@ -204,6 +274,7 @@ static void __exit exitFn(void){
         cdev_del(&etx_cdev);
         unregister_chrdev_region(dev, 1);
         pr_info("Device Driver Remove...Done!!!\n");
+        usb_deregister(&pen_driver);
 }
 
 

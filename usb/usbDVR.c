@@ -11,7 +11,8 @@ static int pen_probe(struct usb_interface *interface, const struct usb_device_id
     struct usb_host_interface *iface_desc;
     struct usb_endpoint_descriptor *endpoint;
     int i;
- 
+    printk(KERN_INFO  "THis is my driver print this data on probe");
+    
     iface_desc = interface->cur_altsetting;
     printk(KERN_INFO "Pen i/f %d now probed: (%04X:%04X)\n",
             iface_desc->desc.bInterfaceNumber, id->idVendor, id->idProduct);
@@ -44,7 +45,9 @@ static void pen_disconnect(struct usb_interface *interface)
  
 static struct usb_device_id pen_table[] =
 {
-    { USB_DEVICE(0x058F, 0x6387) },
+     { USB_DEVICE(0x0781, 0x556b)},
+     {USB_DEVICE(0x2e82 ,0x22b8)},
+    { USB_DEVICE(0x22b8, 0x2e82)},
     {} /* Terminating entry */
 };
 MODULE_DEVICE_TABLE (usb, pen_table);
@@ -59,6 +62,7 @@ static struct usb_driver pen_driver =
  
 static int __init pen_init(void)
 {
+    printk(KERN_INFO  "INITIAL METHOD");
     return usb_register(&pen_driver);
 }
  
